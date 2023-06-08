@@ -1,0 +1,12 @@
+<div *ngIf="articlesOurOffre |async as articles">
+    <app-list-products [title]="title" [articles]="articles">
+        <app-button-list-articles 
+            (addArticles)="onAddArticles()"
+            [isAddButtonDisabled] = "isAddButtonDisabled | async"
+            (decreaseArticles)="onDecreaseArticles()"
+            [isDecreseButtonDisabled] = "isDecreseButtonDisabled | async">
+            
+        </app-button-list-articles>
+    </app-list-products>
+</div>
+

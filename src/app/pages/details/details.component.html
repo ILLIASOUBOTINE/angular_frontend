@@ -1,0 +1,50 @@
+
+<div class="bg-white">
+    <div class="py-6">
+
+        <div class="flex flex-col sm:flex-row gap-4 sm:px-0 px-2">
+                <!-- Image gallery -->
+            <div class="sm:w-1/3">
+
+              
+                <div class="rounded-lg lg:block">
+                    <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg" alt="Two each of gray, white, and black shirts laying flat." class="h-full w-full object-cover object-center">
+                </div>  
+                   
+                
+            </div>
+            <div class="sm:w-2/3 flex flex-col justify-between">
+                <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{product.title | titlecase}}</h1>
+                <div class="py-10 lg:col-span-2 lg:col-start-1  lg:pb-16  lg:pt-6">
+                    <!-- Description and details -->
+                    <div>
+                        <h3 class="sr-only">Description</h3>
+            
+                        <div class="space-y-6">
+                            <p class="text-base text-gray-900">{{product.description}}</p>
+                        </div>
+                    </div>
+            
+                    <div class="mt-10">
+                        <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
+            
+                        
+                        <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
+                            <li class="text-gray-400"><span class="text-gray-600">Hand cut and sewn locally</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">Dyed with our proprietary colors</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">Pre-washed &amp; pre-shrunk</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">Ultra-soft 100% cotton</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="text-3xl tracking-tight text-gray-900">{{product.price | number | currency}}</p>
+                <button type="button" class="mt-10 flex self-center w-full sm:w-[200px] 
+                items-center justify-center rounded-md border border-transparent 
+                bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 
+                focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                [disabled]="!isQuantity" 
+                [ngClass]="{'bg-indigo-200 hover:bg-indigo-200 cursor-no-drop text-black' : !isQuantity}">{{"Add" | btnNameAvail:isQuantity}}</button>
+            </div>
+        </div>
+    </div>
+  </div>

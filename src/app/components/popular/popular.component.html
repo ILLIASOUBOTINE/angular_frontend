@@ -1,0 +1,8 @@
+<div *ngIf="articlesOurOffre |async as articles">
+    <app-list-products [title]="title" [articles]="articles">
+        <p class="flex justify-center gap-2">
+            <button (click)="onAddArticles()" type="button" class="mt-6 sm:mt-10 w-2/5 sm:w-[200px] rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">More</button>
+            <button (click)="onDecreaseArticles()" type="button" class="mt-6 sm:mt-10 w-2/5 sm:w-[200px] rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Less</button>
+        </p>
+    </app-list-products>
+</div>

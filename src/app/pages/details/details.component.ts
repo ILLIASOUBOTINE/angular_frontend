@@ -12,6 +12,7 @@ export class DetailsComponent implements OnInit {
   id?: number;
   product: Product;
   isQuantity: boolean;
+  isLoading: boolean = true;
   
   constructor(private route: ActivatedRoute, private productService: ProductService){}
 
@@ -20,9 +21,22 @@ export class DetailsComponent implements OnInit {
       this.id = +params['id'];
       // console.log(+params['id']);
 
-      this.productService.getProductById(this.id).subscribe((product)=>{
-        this.product = product;
-        this.product.quantity? this.isQuantity = true : this.isQuantity = false;
+      this.productService.getProductById(this.id).subscribe({
+        next:(product)=>{
+          
+          if (Object.keys(product).length !== 0 ) {
+            // console.log(product);
+            this.product = product;
+            this.product.quantity? this.isQuantity = true : this.isQuantity = false;
+            
+          }
+          this.isLoading = false;
+          // console.log(this.product);
+        },
+        error:(error)=>{
+          console.log(error);
+          
+        }
       })
     })
   }

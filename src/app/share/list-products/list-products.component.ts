@@ -16,7 +16,7 @@ import { ArticleService } from 'src/app/services/article.service';
 })
 export class ListProductsComponent {
   @Input() title: string = 'Products';
-  @Input() articles: Article[];
+  @Input() articles: Article[] = [];
 
   // constructor(private articleService: ArticleService) {}
 

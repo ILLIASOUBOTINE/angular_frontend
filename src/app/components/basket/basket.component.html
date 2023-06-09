@@ -1,0 +1,18 @@
+
+    <div class="absolute  inset-y-0  bg-blue-200 w-[300px]" [ngStyle]="{'transition': 'right 0.3s', 'right': (isOpenBasket | async) ? '0' : '-300px'}" >
+       <div class="flex flex-col justify-between items-center h-full px-2 py-2">
+            <div class="flex justify-between items-center w-full border-2 px-2 py-2">
+                <h2 class="text-lg">Basket </h2>
+                <img (click)="onBasket()" class="w-[30px] h-[30px] cursor-pointer hover:scale-110" src="/assets/images/close.svg" title="close" alt="close">
+            </div>
+            <div *ngIf="basketArticles|async as articles"  class="flex flex-col grow items-center w-full border-2 mx-2 my-2">
+                <app-article-basket *ngFor="let article of articles"  [article]="article"></app-article-basket>
+                <p *ngIf="articles.length == 0" class="text-lg mt-4">Your basket is empty</p>
+            </div>
+            
+            <div class="flex justify-center items-center w-full border-2 px-2 py-2 hover:shadow-md cursor-pointer">
+                <h2 class="text-lg">Order </h2>
+            </div>
+       </div>
+    </div>
+

@@ -25,6 +25,11 @@ import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import { AuthGuard } from './guards/auth.guard';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { Page404Component } from './pages/page404/page404.component';
+import { BasketComponent } from './components/basket/basket.component';
+import { ArticleBasketComponent } from './components/article-basket/article-basket.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { FiltersComponent } from './components/filters/filters.component';
 
 
 // Создаем инъекционный токен для JWT_OPTIONS
@@ -53,7 +58,12 @@ export const jwtOptionsProvider = {
     InputMouseleaveDirective,
     IdentificationComponent,
     RegistrationComponent,
-    LogoutComponent
+    LogoutComponent,
+    Page404Component,
+    BasketComponent,
+    ArticleBasketComponent,
+    FilterComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,

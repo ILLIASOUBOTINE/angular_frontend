@@ -1,0 +1,10 @@
+<div class="dropdown">
+    <button class="dropdown-toggle">{{name | titlecase}}</button>
+    <ul class="dropdown-menu">
+        <li  *ngFor="let item of itemsFilter; let i = index">
+            <input [id]="item.title" type="checkbox" [name]="name + '[]'" [value]="item.id" hidden> 
+            <label class="item"  [for]="item.title">{{item.title}}</label>
+        </li>
+        
+    </ul>
+  </div>

@@ -6,6 +6,7 @@ import { AccountComponent } from './pages/account/account.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { IdentificationComponent } from './pages/identification/identification.component';
 import { AuthGuard } from './guards/auth.guard';
+import { Page404Component } from './pages/page404/page404.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'account', component:AccountComponent, canActivate:[AuthGuard]},
   {path:'identification', component:IdentificationComponent},
   {path:'details/:id', component:DetailsComponent},
-  {path:'', redirectTo:'/home', pathMatch: 'full'}
+  {path:'', redirectTo:'/home', pathMatch: 'full'},
+  {path:'**', component:Page404Component}
 ];
 
 @NgModule({

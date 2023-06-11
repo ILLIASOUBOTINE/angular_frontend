@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/Product';
+import { BasketService } from 'src/app/services/basket.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class DetailsComponent implements OnInit {
   isQuantity: boolean;
   isLoading: boolean = true;
   
-  constructor(private route: ActivatedRoute, private productService: ProductService){}
+  constructor(private route: ActivatedRoute, private productService: ProductService, private basketService: BasketService){}
 
   ngOnInit(): void {
     this.route.params.subscribe((params)=>{
@@ -39,6 +40,10 @@ export class DetailsComponent implements OnInit {
         }
       })
     })
+  }
+
+  onAdd(){
+    this.basketService.addArticle(this.product);
   }
 
 }

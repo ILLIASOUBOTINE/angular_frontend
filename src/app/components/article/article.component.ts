@@ -20,8 +20,6 @@ export class ArticleComponent implements OnInit {
   }
 
   onAdd(){
-    const newArticles = this.basketService.basketArticles.getValue();
-    newArticles.push(this.article);
-    this.basketService.basketArticles.next(newArticles);
+    this.basketService.addArticle(this.article);
   }
 }

@@ -28,6 +28,8 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { Page404Component } from './pages/page404/page404.component';
 import { BasketComponent } from './components/basket/basket.component';
 import { ArticleBasketComponent } from './components/article-basket/article-basket.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { FiltersComponent } from './components/filters/filters.component';
 
 
 // Создаем инъекционный токен для JWT_OPTIONS
@@ -59,7 +61,9 @@ export const jwtOptionsProvider = {
     LogoutComponent,
     Page404Component,
     BasketComponent,
-    ArticleBasketComponent
+    ArticleBasketComponent,
+    FilterComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,

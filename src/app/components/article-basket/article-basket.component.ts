@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { Article } from 'src/app/models/Article';
+import { AfterViewChecked, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+
+import { BasketArticle } from 'src/app/models/BasketArticle';
+import { ArticleBasketService } from 'src/app/services/article-basket.service';
 import { BasketService } from 'src/app/services/basket.service';
 
 @Component({
@@ -7,13 +9,29 @@ import { BasketService } from 'src/app/services/basket.service';
   templateUrl: './article-basket.component.html',
   styleUrls: ['./article-basket.component.scss']
 })
-export class ArticleBasketComponent {
-  @Input() article: Article;
+export class ArticleBasketComponent  {
+  @Input() article: BasketArticle;
+  @Input() index: number;
 
   constructor(private basketService: BasketService){}
 
-  onDelete(id:number){
-    
-    this.basketService.deleteArticle(id);
+  
+
+  onDelete(){
+    this.basketService.deleteArticle(this.index);
   }
+
+  onLess(){
+    this.basketService.decreaseQuantityBasketArticle(this.index);
+  }
+
+  onMore(){
+    const isMessage = this.basketService.addQuantityBasketArticle(this.index);
+
+    if (!isMessage) {
+      alert('No more product in stock!');
+    }
+  }
+
+
 }
